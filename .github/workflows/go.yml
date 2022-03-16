@@ -23,3 +23,14 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+
+  golangci:
+      name: lint
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/setup-go@v2
+        - uses: actions/checkout@v2
+        - name: golangci-lint
+          uses: golangci/golangci-lint-action@v2
+          with:
+            version: v1.29
